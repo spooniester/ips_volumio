@@ -1,0 +1,14 @@
+{
+	"id": "{054fc619-6d06-4e02-943a-575cc833b75c}",
+	"name": "Volumio",
+	"type": 3,
+	"vendor": "spooniester",
+	"aliases": 
+	[
+		"Volumio"
+	],
+	"parentRequirements": [],
+	"childRequirements": [],
+	"implemented": [],
+	"prefix": "volumio"
+}
