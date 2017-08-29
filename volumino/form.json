@@ -1,0 +1,17 @@
+{
+	"elements":
+	[
+    { "name": "IPAddress", "type": "ValidationTextBox", "caption": "IP-Address" },
+
+	],
+	"actions":
+	[
+		{ "type": "Button", "label": "Play", "onClick": "volumio_Play($id);" },
+		{ "type": "Button", "label": "Stop", "onClick": "volumio_Stop($id);" },
+		{ "type": "Button", "label": "Pause", "onClick": "volumio_Pause($id);" },
+		{ "type": "Button", "label": "Next", "onClick": "volumio_Next($id);" },
+    { "type": "HorizontalSlider", "name": "Volume", "minimum": 0, "maximum": 25, "onChange": "volumio_SetVolume($id,$volume);" }
+
+    
+	]	
+}
