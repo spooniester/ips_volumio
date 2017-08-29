@@ -21,7 +21,6 @@
                         $this->IP = $this->ReadPropertyString("IP-Adress");
                         $this->RegisterVariableBoolean("Volumio_On", "Volumio Server Online");
 			$this->RegisterTimer("GetStatus", 30000, 'Volumio_GetStatus($_IPS[\'TARGET\']);');
-			$this->GetCUPS();
                       
 			
 		}
@@ -29,9 +28,7 @@
                 {
                         $this->IP = $this->ReadPropertyString("IP-Adress");
                         $URL = "http://" . $this->IP . "/api/v1/getstate";
-                        //$BUFFER = implode(':', file($URL));
    
-                        //SetValue($this->GetIDForIdent(""), $ERG);
                         $PING = Sys_Ping($this->IP, 1000);
                         SetValue($this->GetIDForIdent("Volumio_On"), $PING);
 	
