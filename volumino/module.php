@@ -18,7 +18,7 @@
 		{
 			//Never delete this line!
 			parent::ApplyChanges();
-                        $this->IP = $this->ReadPropertyString("IP-Adress");
+                        $this->IP = $this->ReadPropertyString("IPAddress");
                         $this->RegisterVariableBoolean("Volumio_On", "Volumio Server Online");
 			$this->RegisterTimer("GetStatus", 30000, 'Volumio_GetStatus($_IPS[\'TARGET\']);');
                       
