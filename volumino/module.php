@@ -24,9 +24,9 @@
                       
 			
 		}
-                public function Getstatus()
+                public function GetStatus()
                 {
-                        $this->IP = $this->ReadPropertyString("IP-Adress");
+                        $this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/getstate";
    
                         $PING = Sys_Ping($this->IP, 1000);
