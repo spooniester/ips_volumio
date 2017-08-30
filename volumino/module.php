@@ -20,7 +20,7 @@
 			parent::ApplyChanges();
                         $this->IP = $this->ReadPropertyString("IPAddress");
                         $this->RegisterVariableBoolean("Volumio_On", "Volumio Server Online");
-			$this->RegisterTimer("GetStatus", 30000, 'Volumio_GetStatus($_IPS[\'TARGET\']);');
+			//$this->RegisterTimer("GetStatus", 30000, 'Volumio_GetStatus($_IPS[\'TARGET\']);');
                       
 			
 		}
