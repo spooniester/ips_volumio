@@ -2,8 +2,8 @@
 	"elements":
 	[
     { "name": "IPAddress", "type": "ValidationTextBox", "caption": "IP-Address" },
-
-	],
+    { "name": "UpdateInterval", "type": "IntervalBox", "caption": "Sekunden" }
+        ],
 	"actions":
 	[
 		{ "type": "Button", "label": "Play", "onClick": "volumio_Play($id);" },
