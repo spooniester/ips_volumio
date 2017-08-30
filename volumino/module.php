@@ -10,7 +10,7 @@
         
                         //These lines are parsed on Symcon Startup or Instance creation
                         //You cannot use variables here. Just static values.
-                        $this->RegisterPropertyString("IP-Address", "127.0.0.1");
+                        $this->RegisterPropertyString("IPAddress", "127.0.0.1");
        
                 }
 		
