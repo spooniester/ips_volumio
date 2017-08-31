@@ -68,7 +68,8 @@
                         SetValue($this->GetIDForIdent("Volumio_On"), $PING);
 	
                 }
-		public function volumio_Play()
+		
+		public function Play()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=play";
