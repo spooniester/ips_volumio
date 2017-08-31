@@ -74,5 +74,11 @@
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=play";
 		}
+		
+		public function Stop()
+		{
+		$this->IP = $this->ReadPropertyString("IPAddress");
+                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=stop";
+		}
         }
 ?>
