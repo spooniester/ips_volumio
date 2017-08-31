@@ -57,6 +57,15 @@
       IPS_SetEventActive($id, true);
     }
   }
+		
+		public function RequestAction($Ident, $Value)
+	{
+			
+			
+			
+			
+			
+			
 			 
 			 
                 public function GetStatus()
@@ -80,5 +89,8 @@
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=stop";
 		}
+		
+ 
+}
         }
 ?>
