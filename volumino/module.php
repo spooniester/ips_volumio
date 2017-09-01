@@ -102,6 +102,18 @@
                         $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=pause";
 			$TEST = implode('', file($URL));
 		}
+		public function Prev()
+		{
+		$this->IP = $this->ReadPropertyString("IPAddress");
+                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=prev";
+			$TEST = implode('', file($URL));
+		}
+		
+		public function SetVolume
+		{
+			echo $value;
+		}
+		//api/v1/commands/?cmd=volume&volume=80
 		
  
 }
