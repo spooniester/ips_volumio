@@ -14,6 +14,10 @@
                         //You cannot use variables here. Just static values.
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
        			$this->RegisterPropertyInteger("UpdateInterval", 15);
+			
+			$varID = $this->RegisterVariableInteger("volume", "Lautstaerke");
+		IPS_SetVariableCustomProfile($varID,"~Intensity.100");
+		$this->EnableAction("volume"); 
                 }
 		
 		public function Destroy()
