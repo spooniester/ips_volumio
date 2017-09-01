@@ -15,6 +15,7 @@
                         //You cannot use variables here. Just static values.
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
        			$this->RegisterPropertyInteger("UpdateInterval", 15);
+			$this->RegisterPropertyString("Volume", "10");
 			
 			$varID = $this->RegisterVariableInteger("Volume", "Lautstaerke");
 		IPS_SetVariableCustomProfile($varID,"~Intensity.100");
