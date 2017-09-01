@@ -81,6 +81,8 @@
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=play";
+			$TEST implode('', file($URL));
+			echo $TEST;
 		}
 		
 		public function Stop()
