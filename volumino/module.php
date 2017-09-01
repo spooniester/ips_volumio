@@ -109,7 +109,7 @@
 			$TEST = implode('', file($URL));
 		}
 		
-		public function SetVolume
+		public function SetVolume()
 		{
 			echo $value;
 		}
