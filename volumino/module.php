@@ -15,9 +15,9 @@
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
        			$this->RegisterPropertyInteger("UpdateInterval", 15);
 			
-			$varID = $this->RegisterVariableInteger("volume", "Lautstaerke");
+			$varID = $this->RegisterVariableInteger("Volume", "Lautstaerke");
 		IPS_SetVariableCustomProfile($varID,"~Intensity.100");
-		$this->EnableAction("volume"); 
+		$this->EnableAction("Volume"); 
                 }
 		
 		public function Destroy()
