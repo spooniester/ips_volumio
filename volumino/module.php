@@ -4,6 +4,7 @@
         
         var $IP;
 	var $ONLINE;
+		var $volume;
 		
                 public function Create()
                 {
@@ -116,7 +117,8 @@
 		
 		public function SetVolume()
 		{
-			echo $Value;
+			$this->volume = $this->ReadPropertyString("Volume");
+			echo $this->volume;
 		}
 		//api/v1/commands/?cmd=volume&volume=80
 		
