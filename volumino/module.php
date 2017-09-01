@@ -5,6 +5,7 @@
         var $IP;
 	var $ONLINE;
 		var $VOLUME;
+		var $volume;
 		
                 public function Create()
                 {
