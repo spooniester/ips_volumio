@@ -4,7 +4,7 @@
         
         var $IP;
 	var $ONLINE;
-	var $volume;
+		
                 public function Create()
                 {
                         //Never delete this line!
