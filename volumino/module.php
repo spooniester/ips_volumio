@@ -116,7 +116,7 @@
 		
 		public function SetVolume()
 		{
-			echo $value;
+			echo $Value;
 		}
 		//api/v1/commands/?cmd=volume&volume=80
 		
