@@ -63,7 +63,7 @@
                         $this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/getstate";
    			$BUFFER = implode('', file($URL));
-			echo $BUFFER;
+			//echo $BUFFER;
                         //$PING = Sys_Ping($this->IP, 1000);
                         //SetValue($this->GetIDForIdent("Volumio_On"), $PING);
 	
@@ -82,13 +82,25 @@
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=play";
 			$TEST = implode('', file($URL));
-			echo $TEST;
 		}
 		
 		public function Stop()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=stop";
+			$TEST = implode('', file($URL));
+		}
+		public function Next()
+		{
+		$this->IP = $this->ReadPropertyString("IPAddress");
+                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=next";
+			$TEST = implode('', file($URL));
+		}
+		public function Pause()
+		{
+		$this->IP = $this->ReadPropertyString("IPAddress");
+                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=pause";
+			$TEST = implode('', file($URL));
 		}
 		
  
