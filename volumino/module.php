@@ -56,27 +56,26 @@
       IPS_SetEventCyclic($id, 0, 0, 0, 0, 1, $interval);
       IPS_SetEventActive($id, true);
     }
-  }
-		
-		public function RequestAction($Ident, $Value)
-	{
-			
-			
-			
-			
-			
-			
-			 
+  }	 
 			 
                 public function GetStatus()
                 {
                         $this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/getstate";
-   
-                        $PING = Sys_Ping($this->IP, 1000);
+   			$BUFFER = implode('', file($URL));
+			echo $BUFFER;
+                        //$PING = Sys_Ping($this->IP, 1000);
+                        //SetValue($this->GetIDForIdent("Volumio_On"), $PING);
+	
+                }
+			
+			public function GetOnline()
+			{
+				$PING = Sys_Ping($this->IP, 1000);
                         SetValue($this->GetIDForIdent("Volumio_On"), $PING);
 	
                 }
+				
 		
 		public function Play()
 		{
