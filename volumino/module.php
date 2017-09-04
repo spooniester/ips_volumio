@@ -38,7 +38,7 @@
                        $this->ONLINE = $this->RegisterVariableBoolean("Volumio_On", "Volumio Server Online");
 						$this->EnableAction("Volumio_On");
 						//$this->RegisterTimer("GetStatus", 30000, 'Volumio_GetStatus($_IPS[\'TARGET\']);');
-                    	 $this->RegisterTimer('INTERVAL', $this->ReadPropertyInteger('UpdateInterval'), 'Volumio_GetOnline($id)');
+                    	 $this->RegisterTimer('INTERVAL', $this->ReadPropertyInteger('UpdateInterval'), 'Volumio_GetOnline()');
 			
 		}
 		
