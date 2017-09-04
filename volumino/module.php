@@ -83,9 +83,9 @@
 			$TEST = implode('', file($URL));
 		}
 		
-		public function SetVolume($lautst)
+		public function SetVolume($volume)
 		{
-			echo $lautst;
+			echo $volume;
 			//$URL = "http://" . $this->IP . "/api/v1/commands/?cmd=volume&volume=".$volume;
 			//$TEST = implode('', file($URL));
 		}
