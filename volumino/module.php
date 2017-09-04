@@ -3,9 +3,8 @@
 	{
         
         var $IP;
-	var $ONLINE;
+		var $ONLINE;
 		var $VOLUME;
-		var $volume;
 		
                 public function Create()
                 {
@@ -15,12 +14,13 @@
                         //These lines are parsed on Symcon Startup or Instance creation
                         //You cannot use variables here. Just static values.
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
-       			$this->RegisterPropertyInteger("UpdateInterval", 15);
-			$this->RegisterPropertyString("Volume", "10");
+       					$this->RegisterPropertyInteger("UpdateInterval", 15);
+						$this->RegisterPropertyString("Volume", "10");
 			
-			$varID = $this->RegisterVariableInteger("Volume", "Lautstärke");
-		IPS_SetVariableCustomProfile($varID,"~Intensity.100");
-		$this->EnableAction("Volume"); 
+			this->VOLUME = $this->ReadPropertyString("Volume");
+			this->VOLUME = $this->RegisterVariableInteger("Volume", "Lautstärke");
+			IPS_SetVariableCustomProfile(this->VOLUME,"~Intensity.100");
+			$this->EnableAction("Volume"); 
                 }
 		
 		public function Destroy()
@@ -36,9 +36,9 @@
 			parent::ApplyChanges();
                         $this->IP = $this->ReadPropertyString("IPAddress");
                        $this->ONLINE = $this->RegisterVariableBoolean("Volumio_On", "Volumio Server Online");
-			$this->EnableAction("Volumio_On");
-			//$this->RegisterTimer("GetStatus", 30000, 'Volumio_GetStatus($_IPS[\'TARGET\']);');
-                     $this->RegisterTimer('INTERVAL', $this->ReadPropertyInteger('UpdateInterval'), 'Volumio_GetStatus($id)');
+						$this->EnableAction("Volumio_On");
+						//$this->RegisterTimer("GetStatus", 30000, 'Volumio_GetStatus($_IPS[\'TARGET\']);');
+                    	 $this->RegisterTimer('INTERVAL', $this->ReadPropertyInteger('UpdateInterval'), 'Volumio_GetOnline($id)');
 			
 		}
 		
@@ -71,7 +71,7 @@
                         $this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . "/api/v1/getstate";
    			$BUFFER = implode('', file($URL));
-			//echo $BUFFER;
+			echo $BUFFER;
                         //$PING = Sys_Ping($this->IP, 1000);
                         //SetValue($this->GetIDForIdent("Volumio_On"), $PING);
 	
