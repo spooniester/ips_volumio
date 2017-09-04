@@ -18,7 +18,7 @@
        			$this->RegisterPropertyInteger("UpdateInterval", 15);
 			$this->RegisterPropertyString("Volume", "10");
 			
-			$varID = $this->RegisterVariableInteger("Volume", "Lautstaerke");
+			$varID = $this->RegisterVariableInteger("Volume", "Lautstärke");
 		IPS_SetVariableCustomProfile($varID,"~Intensity.100");
 		$this->EnableAction("Volume"); 
                 }
