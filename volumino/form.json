@@ -12,7 +12,7 @@
 		{ "type": "Button", "label": "Pause", "onClick": "Volumio_Pause($id);" },
 		{ "type": "Button", "label": "Next", "onClick": "Volumio_Next($id);" },
 		{ "type": "Button", "label": "Status", "onClick": "Volumio_GetStatus($id);" },
-		{ "type": "HorizontalSlider", "name": "Slider", "minimum": 0, "maximum": 16, "onChange": "echo $id;" }
+		{ "type": "HorizontalSlider", "name": "Slider", "minimum": 0, "maximum": 16, "onChange": "echo $id;" },
     	{ "type": "HorizontalSlider", "name": "volume", "minimum": 0, "maximum": 25, "onChange": "Volumio_SetVolume($id, $volume);" }
 	]	
 }
