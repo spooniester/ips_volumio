@@ -42,7 +42,7 @@
                 public function GetStatus()
                 {
                         $this->IP = $this->ReadPropertyString("IPAddress");
-                        $URL = "http://" . $this->IP . "/api/v1/getstate";
+                        $URL = "http://" . $this->IP . ":3000/api/v1/getstate";
    						$BUFFER = implode('', file($URL));
 						echo $BUFFER;
                         //$PING = Sys_Ping($this->IP, 1000);
@@ -54,45 +54,45 @@
 		public function Play()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
-                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=play";
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play";
 			$TEST = implode('', file($URL));
 		}
 		
 		public function Stop()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
-                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=stop";
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=stop";
 			$TEST = implode('', file($URL));
 		}
 		public function Next()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
-                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=next";
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=next";
 			$TEST = implode('', file($URL));
 		}
 		public function Pause()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
-                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=pause";
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=pause";
 			$TEST = implode('', file($URL));
 		}
 		public function Prev()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
-                        $URL = "http://" . $this->IP . "/api/v1/commands/?cmd=prev";
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=prev";
 			$TEST = implode('', file($URL));
 		}
 		
 		public function SetVolume($volume)
 		{
-			$URL = "http://" . $this->IP . "/api/v1/commands/?cmd=volume&volume=".$volume;
+			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume&volume=".$volume;
 			echo $URL;
 			$TEST = implode('', file($URL));
 		}
 		
 		public function Mute()
 		{
-			$URL = "http://" . $this->IP . "/api/v1/commands/?cmd=volume&volume=mute";
+			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume&volume=mute";
 			echo $URL;
 			$TEST = implode('', file($URL));
 		}
