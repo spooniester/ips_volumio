@@ -86,14 +86,12 @@
 		public function SetVolume($volume)
 		{
 			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume&volume=".$volume;
-			echo $URL;
 			$TEST = implode('', file($URL));
 		}
 		
 		public function Mute()
 		{
-			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume&volume=mute";
-			echo $URL;
+			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume&volume=55";
 			$TEST = implode('', file($URL));
 		}
 		
