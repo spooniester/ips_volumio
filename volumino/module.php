@@ -81,19 +81,19 @@
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=prev";
                         
-			$TEST = implode('', file($URL));
+			$TEST = implode('', file($URL);
 		}
 		
 		public function SetVolume($volume)
 		{
-			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume#x26;volume=".$volume;
-			$TEST = implode('', file($URL));
+			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume&volume=".$volume;
+			//$TEST = implode('', file($URL));
 		}
 		
 		public function Mute()
 		{
-			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume#x26;volume=55";
-			$TEST = implode('', file($URL));
+			$URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume&volume=55";
+			//$TEST = implode('', file($URL));
 		}
 		
 		
