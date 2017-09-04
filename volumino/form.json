@@ -12,7 +12,6 @@
 		{ "type": "Button", "label": "Pause", "onClick": "Volumio_Pause($id);" },
 		{ "type": "Button", "label": "Next", "onClick": "Volumio_Next($id);" },
 		{ "type": "Button", "label": "Status", "onClick": "Volumio_GetStatus($id);" },
-		{ "type": "ValidationTextBox", "name": "volume", "caption": "Lautstärke" },
-    	{ "type": "HorizontalSlider", "name": "Volume", "minimum": 0, "maximum": 25, "onChange": "Volumio_SetVolume($id, $volume);" }
+    	{ "type": "HorizontalSlider", "name": "volume", "minimum": 0, "maximum": 25, "onChange": "Volumio_SetVolume($id, $volume);" }
 	]	
 }
