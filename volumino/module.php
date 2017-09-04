@@ -45,8 +45,8 @@
                         $URL = "http://" . $this->IP . "/api/v1/getstate";
    						$BUFFER = implode('', file($URL));
 						echo $BUFFER;
-                        $PING = Sys_Ping($this->IP, 1000);
-                        SetValue($this->GetIDForIdent("Volumio_On"), $PING);
+                        //$PING = Sys_Ping($this->IP, 1000);
+                        //SetValue($this->GetIDForIdent("Volumio_On"), $PING);
 	
                 }
 				
