@@ -35,7 +35,9 @@
                         $this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/getstate";
    						$BUFFER = implode('', file($URL));
-						echo $BUFFER;
+						//echo $BUFFER;
+						$data = json_decode($BUFFER);
+						var_dump($data);
                         //$PING = Sys_Ping($this->IP, 1000);
                         //SetValue($this->GetIDForIdent("Volumio_On"), $PING);
 	
