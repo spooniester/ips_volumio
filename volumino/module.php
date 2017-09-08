@@ -38,7 +38,6 @@
 
                 }
 						
-                }
 		
 		public function Destroy()
     {
