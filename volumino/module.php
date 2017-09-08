@@ -35,7 +35,7 @@
 				{
 				$this->SetStatus(102); //IP Adresse ist gültig -> aktiv
 				}
-				$this->RegisterTimer('INTERVAL', $this->ReadPropertyInteger('UpdateInterval'), 'GetStatus($id)');
+				$this->RegisterTimer('INTERVAL', $this->ReadPropertyInteger('UpdateInterval'), 'GetOnline($id)');
 		}
 		
 		protected function RegisterTimer($ident, $interval, $script) {
