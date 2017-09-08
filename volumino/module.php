@@ -68,8 +68,8 @@
                         $URL = "http://" . $this->IP . ":3000/api/v1/getstate";
    						$BUFFER = implode('', file($URL));
 						$data = json_decode($BUFFER);
-						var_dump($data);
-						IPS_LogMessage("ReceiveData", utf8_decode($data->Buffer));
+						//var_dump($data);
+						IPS_LogMessage("ReceiveData", $data->status);
     					//SetValue($this->GetIDForIdent("Value"), $data->Buffer);
                 }
                 
