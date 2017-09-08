@@ -12,6 +12,18 @@
                         //You cannot use variables here. Just static values.
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
        					$this->RegisterPropertyInteger("UpdateInterval", 15);
+       					
+       					$this->RegisterPropertyString("Radio1Name", "Radio Lippe");
+                        $this->RegisterPropertyString("Radio2Name", "FFN");
+                        $this->RegisterPropertyString("Radio3Name", "FFH");
+                        $this->RegisterPropertyString("Radio4Name", "OE3");
+                        $this->RegisterPropertyString("Radio5Name", "Antenne Bayern");
+                        $this->RegisterPropertyString("Radio1", "tunein:station:s96523");
+                        $this->RegisterPropertyString("Radio2", "tunein:station:s84672");
+                        $this->RegisterPropertyString("Radio3", "tunein:station:s223993");
+                        $this->RegisterPropertyString("Radio4", "tunein:station:s8007");
+                        $this->RegisterPropertyString("Radio5", "tunein:station:s96752");
+                        
        					$this->RegisterProfileIntegerEx("Status.SONOS", "Information", "", "", Array(
                                 Array(0, "Prev", "", -1),
                                 Array(1, "Play", "", -1),
