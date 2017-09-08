@@ -11,7 +11,32 @@
                         //These lines are parsed on Symcon Startup or Instance creation
                         //You cannot use variables here. Just static values.
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
-       					$this->RegisterPropertyInteger("UpdateInterval", 15);	
+       					$this->RegisterPropertyInteger("UpdateInterval", 15);
+       					$this->RegisterProfileIntegerEx("Status.SONOS", "Information", "", "", Array(
+                                Array(0, "Prev", "", -1),
+                                Array(1, "Play", "", -1),
+                                Array(2, "Pause", "", -1),
+                                Array(3, "Stop", "", -1),
+                                Array(4, "Next", "", -1)
+                        ));	
+                        
+                        $this->RegisterProfileIntegerEx("Station.SONOS", "Information", "", "", Array(
+                                Array(0, $this->ReadPropertyString("Radio1Name"), "", -1),
+                                Array(1, $this->ReadPropertyString("Radio2Name"), "", -1),
+                                Array(2, $this->ReadPropertyString("Radio3Name"), "", -1),
+                                Array(3, $this->ReadPropertyString("Radio4Name"), "", -1),
+                                Array(4, $this->ReadPropertyString("Radio5Name"), "", -1),
+                        ));
+                        
+                        $this->RegisterVariableInteger("Mute", "Mute", "Schalter.SONOS");
+                        $this->EnableAction("Mute");
+                        $this->RegisterVariableInteger("Station", "Station", "Station.SONOS");
+                        $this->EnableAction("Station");
+                        $this->RegisterVariableString("Radiotitel", "Radiotitel", "");
+                        $this->RegisterVariableString("Radiotitel_alt", "Radiotitel_alt", "");
+                        $this->RegisterVariableString("Sender", "Sender", "");
+
+                }
 						
                 }
 		
@@ -84,9 +109,12 @@
 		
 		public function Play()
 		{
+		if $this->ReadProperty("Volumio_On") == true
+		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
-                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N=2";
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play";
 			$TEST = implode('', file($URL));
+			}
 		}
 		
 		public function Stop()
@@ -113,6 +141,99 @@
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=prev";
 			$TEST = implode('', file($URL));
 		}
+		
+		
+		public function RequestAction($Ident, $Value)
+                {
+                        switch($Ident) {
+                                case "Station":
+                                        switch($Value) {
+                                                case 0:
+                                                        $this->SetRadio($this->ReadPropertyString("Radio1"),"");
+                                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                                        break;
+                                                case 1:
+                                                        $this->SetRadio($this->ReadPropertyString("Radio2"),"");
+                                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                                        break;
+                                                case 2:
+                                                        $this->SetRadio($this->ReadPropertyString("Radio3"),"");
+                                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                                        break;
+                                                case 3:
+                                                        $this->SetRadio($this->ReadPropertyString("Radio4"),"");
+                                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                                        break;
+                                                case 4:
+                                                        $this->SetRadio($this->ReadPropertyString("Radio5"),"");
+                                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                                        break;
+
+                                        }
+                                        break;
+                                case "Status":
+                                        switch($Value) {
+                                                case 0: //Prev
+                                                        $this->Previous();
+                                                        break;
+                                                case 1: //Play
+                                                        $this->Play();
+                                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                                        break;
+                                                case 2: //Pause
+                                                        $this->Pause();
+                                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                                        break;
+                                                case 3: //Stop
+                                                        $this->Stop();
+                                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                                        break;
+                                                case 4: //Next
+                                                        $this->Next();
+                                                        break;
+                                        }
+                                        break;
+                                case "Volume":
+                                        $this->SetVolume($Value);
+                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                        break;
+                                case "Mute":
+                                        $this->SetMute($Value);
+                                        SetValue($this->GetIDForIdent($Ident), $Value);
+                                        break;
+
+                                default:
+                                        throw new Exception("Invalid ident");
+                        }
+
+                }
+                
+                //Remove on next Symcon update
+                protected function RegisterProfileInteger($Name, $Icon, $Prefix, $Suffix, $MinValue, $MaxValue, $StepSize) {
+
+                        if(!IPS_VariableProfileExists($Name)) {
+                                IPS_CreateVariableProfile($Name, 1);
+                        } else {
+                                $profile = IPS_GetVariableProfile($Name);
+                                if($profile['ProfileType'] != 1)
+                                        throw new Exception("Variable profile type does not match for profile ".$Name);
+                        }
+
+                        IPS_SetVariableProfileIcon($Name, $Icon);
+                        IPS_SetVariableProfileText($Name, $Prefix, $Suffix);
+                        IPS_SetVariableProfileValues($Name, $MinValue, $MaxValue, $StepSize);
+
+                }
+
+                protected function RegisterProfileIntegerEx($Name, $Icon, $Prefix, $Suffix, $Associations) {
+
+                        $this->RegisterProfileInteger($Name, $Icon, $Prefix, $Suffix, $Associations[0][0], $Associations[sizeof($Associations)-1][0], 0);
+
+                        foreach($Associations as $Association) {
+                                IPS_SetVariableProfileAssociation($Name, $Association[0], $Association[1], $Association[2], $Association[3]);
+                        }
+
+                }
 		
 		
 		
