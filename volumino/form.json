@@ -15,4 +15,14 @@
 		//{ "type": "Button", "label": "Mute", "onClick": "Volumio_Mute($id);" },
 		//{ "type": "HorizontalSlider", "name": "volume", "minimum": 0, "maximum": 100, "onChange": "Volumio_SetVolume($id, $volume);" }
 	]	
+	
+	"status": [
+    { "code": 101, "icon": "inactive", "caption": "Instanz wird erstellt" },
+    { "code": 102, "icon": "active", "caption": "Instanz ist aktiv" },
+    { "code": 103, "icon": "inactive", "caption": "Instanz wird gelöscht" },
+    { "code": 104, "icon": "inactive", "caption": "Instanz ist inaktiv" },
+    { "code": 201, "icon": "error", "caption": "Instanz konnte keine Verbidnung aufbauen" },
+    { "code": 202, "icon": "error", "caption": "Instanz hat einen unbekannten Fehler erhalten" },
+	{ "code": 203, "icon": "error", "caption": "IP Adresse ist ungültig" },
+  ]
 }
