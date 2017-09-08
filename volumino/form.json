@@ -12,7 +12,7 @@
 		{ "type": "Button", "label": "Pause", "onClick": "Volumio_Pause($id);" },
 		{ "type": "Button", "label": "Next", "onClick": "Volumio_Next($id);" },
 		{ "type": "Button", "label": "Status", "onClick": "Volumio_GetStatus($id);" },
-		{ "type": "Button", "label": "Mute", "onClick": "Volumio_Mute($id);" },
-		{ "type": "HorizontalSlider", "name": "volume", "minimum": 0, "maximum": 100, "onChange": "Volumio_SetVolume($id, $volume);" }
+		//{ "type": "Button", "label": "Mute", "onClick": "Volumio_Mute($id);" },
+		//{ "type": "HorizontalSlider", "name": "volume", "minimum": 0, "maximum": 100, "onChange": "Volumio_SetVolume($id, $volume);" }
 	]	
 }
