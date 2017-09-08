@@ -69,6 +69,8 @@
    						$BUFFER = implode('', file($URL));
 						$data = json_decode($BUFFER);
 						var_dump($data);
+						IPS_LogMessage("ReceiveData", utf8_decode($data->Buffer));
+    					//SetValue($this->GetIDForIdent("Value"), $data->Buffer);
                 }
                 
         public function GetOnline()
@@ -89,15 +91,6 @@
 			}
 		}
 		
-		public function SetRadio()
-		{
-		if ($this->ReadPropertyBoolean("Volumio_On") === true)
-		{
-		$this->IP = $this->ReadPropertyString("IPAddress");
-            $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play;
-			$TEST = implode('', file($URL));
-			}
-		}
 		
 		public function Stop()
 		{
