@@ -108,7 +108,7 @@
 		
 		public function Play()
 		{
-		if $this->ReadPropertyBoolean("Volumio_On") == true
+		if ($this->ReadPropertyBoolean("Volumio_On") === true)
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play";
