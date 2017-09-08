@@ -72,10 +72,14 @@
    						$BUFFER = implode('', file($URL));
 						$data = json_decode($BUFFER);
 						var_dump($data);
-                        //$PING = Sys_Ping($this->IP, 1000);
-                        //SetValue($this->GetIDForIdent("Volumio_On"), $PING);
-	
                 }
+                
+        public function GetOnline()
+        {
+        $this->IP = $this->ReadPropertyString("IPAddress");
+        $PING = Sys_Ping($this->IP, 1000);
+        SetValue($this->GetIDForIdent("Volumio_On"), $PING);
+        }
 				
 		
 		public function Play()
