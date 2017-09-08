@@ -85,7 +85,7 @@
 		public function Play()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
-                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play";
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N=2";
 			$TEST = implode('', file($URL));
 		}
 		
