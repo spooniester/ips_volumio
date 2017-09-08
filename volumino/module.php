@@ -13,9 +13,9 @@
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
        					$this->RegisterPropertyInteger("UpdateInterval", 15);
        					
-       					$this->RegisterPropertyString("Radio1Name", "Radio Lippe");
-                        $this->RegisterPropertyString("Radio2Name", "FFN");
-                        $this->RegisterPropertyString("Radio3Name", "FFH");
+       					$this->RegisterPropertyString("Radio1Name", "Einslive");
+                        $this->RegisterPropertyString("Radio2Name", "Radio LippeWeller");
+                        $this->RegisterPropertyString("Radio3Name", "Ballermann");
                         $this->RegisterPropertyString("Radio4Name", "OE3");
                         $this->RegisterPropertyString("Radio5Name", "Antenne Bayern");
                         $this->RegisterPropertyString("Radio1", "tunein:station:s96523");
@@ -124,6 +124,16 @@
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play";
+			$TEST = implode('', file($URL));
+			}
+		}
+		
+		public function SetRadio($number)
+		{
+		if ($this->ReadPropertyBoolean("Volumio_On") === true)
+		{
+		$this->IP = $this->ReadPropertyString("IPAddress");
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N="$number";
 			$TEST = implode('', file($URL));
 			}
 		}
