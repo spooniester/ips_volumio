@@ -89,12 +89,12 @@
 			}
 		}
 		
-		public function SetRadio($number)
+		public function SetRadio()
 		{
 		if ($this->ReadPropertyBoolean("Volumio_On") === true)
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
-            $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N="$number";
+            $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play;
 			$TEST = implode('', file($URL));
 			}
 		}
