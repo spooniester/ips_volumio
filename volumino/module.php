@@ -4,6 +4,9 @@
 	var $IP;
 	var $ONLINE;
 	var $MUTE;
+	var $SENDER;
+	var $VOLUME;
+	var $STATUS;
                 public function Create()
                 {
                         //Never delete this line!
@@ -12,7 +15,10 @@
                         //These lines are parsed on Symcon Startup or Instance creation
                         //You cannot use variables here. Just static values.
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
-       					$this->RegisterPropertyInteger("UpdateInterval", 15);
+       			$this->RegisterPropertyInteger("UpdateInterval", 15);
+			$this->RegisterPropertyString("Sender","Sender");
+			$this->RegisterPropertyInteger("Lautstaerke", 50);
+			$this->RegisterPropertyString("Status","Status");
        					}
 		
 		public function Destroy()
@@ -29,8 +35,10 @@
                         $this->IP = $this->ReadPropertyString("IPAddress");
                        $this->ONLINE = $this->RegisterVariableBoolean("Volumio_On", "Volumio Server Online");
 						$this->EnableAction("Volumio_On");
-						
 						$this->MUTE = $this->RegisterVariableBoolean("Mute", "Mute");
+						$this->SENDER = $this->RegisterVariableString("Sender","Sender");
+						$this->VOLUME = $this->RegisterVariableInteger("Lautstaerke","Lautstaerke");
+						$this->STATUS = $this->RegisterVariableString("Status","Status");
 						$this->EnableAction("Mute");
 						//IP Prüfen
 						$ip = $this->ReadPropertyString('IPAddress');
@@ -73,8 +81,13 @@
    						$BUFFER = implode('', file($URL));
 						$data = json_decode($BUFFER);
 						//var_dump($data);
-						//IPS_LogMessage("ReceiveData", $data->status);
-    					//SetValue($this->GetIDForIdent("Status"), $data->status);
+						//IPS_LogMessage("VOLUMIO", $data->status);
+						//IPS_LogMessage("VOLUMIO", $data->title);
+						//IPS_LogMessage("VOLUMIO", $data->volume);
+						//IPS_LogMessage("VOLUMIO", $data->stream);
+    					SetValue($this->GetIDForIdent("Lautstaerke"), $data->volume);
+					SetValue($this->GetIDForIdent("Status"), $data->status);
+					SetValue($this->GetIDForIdent("Sender"), $data->title);
                 }
                 
         public function GetOnline()
@@ -130,6 +143,12 @@
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N=3";
 			$TEST = implode('', file($URL));
 		}
+		public function PlayMP3()
+                {
+                $this->IP = $this->ReadPropertyString("IPAddress");
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N=4";
+                        $TEST = implode('', file($URL));
+                }
 		
 		public function Next()
 		{
@@ -156,6 +175,7 @@
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=volume&mute";
                         //SetValue(this->GetIDForIdent("Mute"), $value);
 			$TEST = implode('', file($URL));
+			IPS_LogMessage("VOLUMIO",$TEST);
 		} 
 }
 ?>

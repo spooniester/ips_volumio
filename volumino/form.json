@@ -12,6 +12,7 @@
 		{ "type": "Button", "label": "RLW", "onClick": "Volumio_PlayRadioLippeWelle($id);" },
 		{ "type": "Button", "label": "Ballermann", "onClick": "Volumio_PlayBallermann($id);" },
 		{ "type": "Button", "label": "WDR2", "onClick": "Volumio_PlayWDR($id);" },
+		{ "type": "Button", "label": "MP3", "onClick": "Volumio_PlayMP3($id);" },
 		{ "type": "Button", "label": "Stop", "onClick": "Volumio_Stop($id);" },
 		{ "type": "Button", "label": "Pause", "onClick": "Volumio_Pause($id);" },
 		{ "type": "Button", "label": "Next", "onClick": "Volumio_Next($id);" },
