@@ -1,6 +1,6 @@
 <?
 	class Volumio extends IPSModule
-	{	
+	{
 	var $IP;
 	var $ONLINE;
 	var $MUTE;
@@ -11,23 +11,23 @@
                 {
                         //Never delete this line!
                         parent::Create();
-        
+
                         //These lines are parsed on Symcon Startup or Instance creation
                         //You cannot use variables here. Just static values.
                         $this->RegisterPropertyString("IPAddress", "127.0.0.1");
        			$this->RegisterPropertyInteger("UpdateInterval", 15);
 			$this->RegisterPropertyString("Sender","Sender");
-			$this->RegisterPropertyInteger("Lautstaerke", 50);
+			$this->RegisterPropertyInteger("Lautstaerke", 30);
 			$this->RegisterPropertyString("Status","Status");
        					}
-		
+
 		public function Destroy()
     {
         //Never delete this line!
         parent::Destroy();
     }
-		
-		
+
+
 		public function ApplyChanges()
 		{
 			//Never delete this line!
@@ -48,8 +48,8 @@
 							}
 						$this->RegisterTimer('INTERVAL', $this->ReadPropertyInteger('UpdateInterval'), 'volumio_GetOnline($id)');
 		}
-		
-		
+
+
 		protected function RegisterTimer($ident, $interval, $script) {
     		$id = @IPS_GetObjectIDByIdent($ident, $this->InstanceID);
     		if ($id && IPS_GetEvent($id)['EventType'] <> 1) {
@@ -73,7 +73,7 @@
       		IPS_SetEventActive($id, true);
     		}
   			}
-		
+
 		public function GetStatus()
                 {
                         $this->IP = $this->ReadPropertyString("IPAddress");
@@ -89,15 +89,15 @@
 					SetValue($this->GetIDForIdent("Status"), $data->status);
 					SetValue($this->GetIDForIdent("Sender"), $data->title);
                 }
-                
+
         public function GetOnline()
         {
         $this->IP = $this->ReadPropertyString("IPAddress");
         $PING = Sys_Ping($this->IP, 1000);
         SetValue($this->GetIDForIdent("Volumio_On"), $PING);
         }
-				
-		
+
+
 		public function Play()
 		{
 		if ($this->ReadPropertyBoolean("Volumio_On") === true)
@@ -107,36 +107,36 @@
 			$TEST = implode('', file($URL));
 			}
 		}
-		
-		
+
+
 		public function Stop()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=stop";
 			$TEST = implode('', file($URL));
 		}
-		
+
 		public function PlayEinslive()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N=0";
 			$TEST = implode('', file($URL));
 		}
-		
+
 		public function PlayRadioLippeWelle()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N=1";
 			$TEST = implode('', file($URL));
 		}
-		
+
 		public function PlayBallermann()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N=2";
 			$TEST = implode('', file($URL));
 		}
-		
+
 		public function PlayWDR()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
@@ -149,7 +149,7 @@
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=play&N=4";
                         $TEST = implode('', file($URL));
                 }
-		
+
 		public function Next()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
@@ -167,8 +167,8 @@
 		$this->IP = $this->ReadPropertyString("IPAddress");
                         $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=prev";
 			$TEST = implode('', file($URL));
-		} 
-		
+		}
+
 		public function Mute()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
@@ -176,6 +176,6 @@
                         //SetValue(this->GetIDForIdent("Mute"), $value);
 			$TEST = implode('', file($URL));
 			IPS_LogMessage("VOLUMIO",$TEST);
-		} 
+		}
 }
 ?>
