@@ -84,7 +84,7 @@
 						//IPS_LogMessage("VOLUMIO", $data->status);
 						//IPS_LogMessage("VOLUMIO", $data->title);
 						//IPS_LogMessage("VOLUMIO", $data->volume);
-						//IPS_LogMessage("VOLUMIO", $data->stream);
+						IPS_LogMessage("VOLUMIO", $data->stream);
     					SetValue($this->GetIDForIdent("Lautstaerke"), $data->volume);
 					SetValue($this->GetIDForIdent("Status"), $data->status);
 					SetValue($this->GetIDForIdent("Sender"), $data->title);
