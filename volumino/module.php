@@ -116,6 +116,13 @@
 			$TEST = implode('', file($URL));
 		}
 
+		public function Clear()
+		{
+		$this->IP = $this->ReadPropertyString("IPAddress");
+                        $URL = "http://" . $this->IP . ":3000/api/v1/commands/?cmd=clearQueue";
+			$TEST = implode('', file($URL));
+		}
+
 		public function PlayEinslive()
 		{
 		$this->IP = $this->ReadPropertyString("IPAddress");
