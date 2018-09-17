@@ -9,9 +9,9 @@
 	[
 		{ "type": "Button", "label": "Play", "onClick": "Volumio_Play($id);" },
 		{ "type": "Button", "label": "Einslive", "onClick": "Volumio_PlayEinslive($id);" },
-		{ "type": "Button", "label": "Radio", "onClick": "Volumio_PlayRadioLippeWelle($id);" },
-		{ "type": "Button", "label": "Ballermann", "onClick": "Volumio_PlayBallermann($id);" },
-		{ "type": "Button", "label": "HierWDR2", "onClick": "Volumio_PlayWDR($id);" },
+		{ "type": "Button", "label": "RadioLippeWelle", "onClick": "Volumio_PlayRadioLippeWelle($id);" },
+		{ "type": "Button", "label": "BallermannRadio", "onClick": "Volumio_PlayBallermann($id);" },
+		{ "type": "Button", "label": "WDR2", "onClick": "Volumio_PlayWDR($id);" },
 		{ "type": "Button", "label": "MP3", "onClick": "Volumio_PlayMP3($id);" },
 		{ "type": "Button", "label": "Stop", "onClick": "Volumio_Stop($id);" },
 		{ "type": "Button", "label": "Clear", "onClick": "Volumio_Clear($id);" },
